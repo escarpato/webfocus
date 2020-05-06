@@ -21,6 +21,7 @@ SET ARVERSION=&WF_ARVERSION
 GRAPH FILE ibisamp/car
 -* Created by Info Assist for Graph
 SUM CAR.BODY.SEATS
+CAR.BODY.DEALER_COST
 BY CAR.COMP.CAR
 ON GRAPH PCHOLD FORMAT JSCHART
 ON GRAPH SET VZERO OFF
@@ -36,14 +37,15 @@ ON GRAPH SET STYLE *
 setPieDepth(0);
 setPieTilt(0);
 setDepthRadius(0); 
-setCurveFitEquationDisplay(false); 
 setPlace(true); 
+setCurveFitEquationDisplay(false); 
 
 *END
 INCLUDE=IBFS:/FILE/IBI_HTML_DIR/ibi_themes/Warm.sty,$
 TYPE=REPORT, TITLETEXT=&WF_TITLE.QUOTEDSTRING, ORIENTATION=LANDSCAPE, $
 TYPE=DATA, COLUMN=N1, BUCKET=x-axis, $
 TYPE=DATA, COLUMN=N2, BUCKET=y-axis, $
+TYPE=DATA, COLUMN=N3, BUCKET=y-axis, $
 *GRAPH_SCRIPT
 
 setReportParsingErrors(false);
